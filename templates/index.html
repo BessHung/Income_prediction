@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="icon" href="../static\img\logo.png" type="image/x-icon">
+  <title>Income Prediction</title>
+
+  <link rel="stylesheet" href="../static/css/style_home.css">
+
+</head>
+
+<body>
+  <!-- Nav Bar -->
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#viz">Visualization</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#mlmodel">Machine Learning</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/BessHung/Income_Classification">GitHub Page</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Nav Bar End-->
+
+  <div class="jumbotron"></div>
+
+  <!-- Home -->
+  <a name="home"></a>
+  <div class="container" id="home">
+    <div class="row">
+      <div class="col-md-8 offset-md-2 text-center">
+        <h1>Predict your income value !</h1>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p></p>
+        <p>Do you want to know if your income is greater or less than $50,000?</p>
+        <p>Please provide the following information.</p>
+      </div>
+
+      <div class="col-md-6 offset-md-3">
+        <!--------------------------------------------------------------->
+        <ul class="list-group">
+          <li class="list-group-item">
+            <label for="Age">Enter your age</label>
+            <input id="Age" type="text" placeholder="" required="required" />
+          </li>
+          <li class="list-group-item">
+            <label for="Gender">Enter gender assigned at birth</label>
+            <select id="Gender" name="text" placeholder="">
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+          </li>
+          <li class="list-group-item">
+            <label for="Education">Enter Education </label>
+            <select id="Education" name="text" placeholder="">
+              <option value="Preschool">Preschool</option>
+              <option value="1st-4th">1st-4th</option>
+              <option value="5th-6th">5th-6th</option>
+              <option value="7th-8th">7th-8th</option>
+              <option value="9th">9th</option>
+              <option value="10th">10th</option>
+              <option value="11th">11th</option>
+              <option value="12th">12th</option>
+              <option value="HS-grad">HS-grad</option>
+              <option value="Some-college">Some-colleg </option>
+              <option value="Assoc-voc">Assoc-voc</option>
+              <option value="Assoc-acdm">Assoc-acdm</option>
+              <option value="Bachelors">Bachelors </option>
+              <option value="Masters">Masters</option>
+              <option value="Prof-school">Prof-school</option>
+              <option value="Doctorate">Doctorate</option>
+            </select>
+          </li>
+          <li class="list-group-item">
+            <label for="Hours per week">Enter works hours per week</label>
+            <input id="Hours per week" type="text" placeholder="" required="required" />
+          </li>
+          <li class="list-group-item">
+            <label for="marital-status">Enter marital-status </label>
+            <select id="marital-status" name="text" placeholder="">
+
+              <option value="Married-AF-spouse">Married-AF-spouse</option>
+              <option value="Married-civ-spouse">Married-civ-spouse</option>
+              <option value="Married-spouse-absent">Married-spouse-absent</option>
+              <option value="Divorced">Divorced</option>
+              <option value="Never-married">Never-married</option>
+              <option value="Separated">Separated</option>
+              <option value="Widowed">Widowed</option>
+            </select>
+          </li>
+          <li class="list-group-item">
+            <label for="Occupation">Enter Occupation</label>
+            <select id="Occupation" name="text" placeholder="">
+              <option value="Adm-clerical">Adm-clerical</option>
+              <option value="Armed-Forces">Armed-Forces</option>
+              <option value="Craft-repair">Craft-repair</option>
+              <option value="Exec-managerial">Exec-managerial</option>
+              <option value="Farming-fishing">Farming-fishing</option>
+              <option value="Handlers-cleaners">Handlers-cleaners</option>
+              <option value="Machine-op-inspct">Machine-op-inspct</option>
+              <option value="Other-service">Other-service</option>
+              <option value="Priv-house-serv">Priv-house-serv</option>
+              <option value="Prof-specialty">Prof-specialty</option>
+              <option value="Protective-serv">Protective-serv</option>
+              <option value="Sales">Sales</option>
+              <option value="Tech-support">Tech-support</option>
+              <option value="Transport-moving">Transport-moving</option>
+            </select>
+          </li>
+          <li class="list-group-item">
+            <label for="Work Class">Enter Work Class </label>
+            <select id="Work Class" name="text" placeholder="">
+              <option value="Private"> Private </option>
+              <option value="Self-emp-not-inc"> Self-emp-not-inc </option>
+              <option value="Local-gov"> Local-gov </option>
+              <option value="State-gov"> State-gov </option>
+              <option value="Self-emp-inc"> Self-emp-inc </option>
+              <option value="Federal-gov"> Federal-gov </option>
+              <option value="Without-pay"> Without-pay </option>
+            </select>
+          </li>
+          <li class="list-group-item">
+            <label for="Relationship">Enter Relationship</label>
+            <select id="Relationship" name="text" placeholder="">
+              <option value="Husband">Husband</option>
+              <option value="Wife">Wife</option>
+              <option value="Not-in-family">Not-in-family</option>
+              <option value="Own-child">Own-child</option>
+              <option value="Unmarried">Unmarried</option>
+              <option value="Other-relative">Other-relative</option>
+            </select>
+          </li>
+          <li class="list-group-item">
+            <label for="Race">Enter Race </label>
+            <select id="Race" name="text" placeholder="">
+              <option value="White"> White </option>
+              <option value="Black"> Black </option>
+              <option value="Asian-Pac-Islander"> Asian-Pac-Islander </option>
+              <option value="Amer-Indian-Eskimo"> Amer-Indian-Eskimo </option>
+              <option value="Other"> Other </option>
+            </select>
+          </li>
+
+          <li class="list-group-item">
+            <label for="native-country">Enter native country</label>
+            <select id="native-country" name="text" placeholder="">
+              <option value="United-States">United States</option>
+              <option value="Canada">Canada</option>
+              <option value="Cuba">Cuba</option>
+              <option value="China">China</option>
+              <option value="Columbia">Columbia</option>
+              <option value="Cambodia">Cambodia</option>
+              <option value="Dominican-Republic">Dominican Republic</option>
+              <option value="El-Salvador">El Salvador</option>
+              <option value="England">England</option>
+              <option value="Ecuador">Ecuador</option>
+              <option value="France">France</option>
+              <option value="Germany">Germany</option>
+              <option value="Guatemala">Guatemala</option>
+              <option value="Greece">Greece</option>
+              <option value="Haiti">Haiti</option>
+              <option value="Hong">Hong</option>
+              <option value="Hungary">Hungary</option>
+              <option value="Honduras">Honduras</option>
+              <option value="Holand-Netherlands">Holand Netherlands</option>
+              <option value="India">India</option>
+              <option value="Italy">Italy</option>
+              <option value="Iran">Iran</option>
+              <option value="Ireland">Ireland</option>
+              <option value="Jamaica">Jamaica</option>
+              <option value="Japan">Japan</option>
+              <option value="Laos">Laos</option>
+              <option value="Mexico">Mexico</option>
+              <option value="Nicaragua">Nicaragua</option>
+              <option value="Outlying-US(Guam-USVI-etc)">Outlying US(Guam-USVI-etc)</option>
+              <option value="Philippines">Philippines</option>
+              <option value="Puerto-Rico">Puerto Rico</option>
+              <option value="Poland">Poland</option>
+              <option value="Portugal">Portugal</option>
+              <option value="Peru">Peru</option>
+              <option value="South">South</option>
+              <option value="Scotland">Scotland</option>
+              <option value="Taiwan">Taiwan</option>
+              <option value="Trinadad&Tobago">Trinadad and Tobago</option>
+              <option value="Thailand">Thailand</option>
+              <option value="Vietnam">Vietnam</option>
+              <option value="Yugoslavia">Yugoslavia</option>
+            </select>
+          </li>
+        </ul>
+
+        <br>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2 text-center">
+        <button onclick="getResponse()" id="btn" class="btn btn-outline-secondary">
+          <style>
+            input[type=submit] {
+              border: none;
+              text-decoration: none;
+              margin: 4px 2px;
+              cursor: pointer;
+            }
+          </style>Predict
+        </button>
+        <br>
+        <br>
+        <h3 id="result" style="color:rgb(145, 134, 126)"></h3>
+      </div>
+    </div>
+  </div>
+
+  <script src="../static/js/income.js"></script>
+
+
+  <br>
+  <br>
+  <br>
+
+  <a name="about"></a>
+  <div class="container" id="about">
+    <div class="row">
+      <div class="col-md-8 offset-md-2 text-center">
+        <h1>Project Overview</h1>
+        <br>
+        <p>The purpose of this project is to predict if one’s income is more or less than 50K based on 10 given
+          features. We used income classification data set found on Kaggle.com. The dataset has 14 attributes and 1
+          target, we dropped and cleaned the data and remained 30162 rows of data and 10 features for our machine
+          learning model.</p>
+        <p>To determine which machine learning model to use in prediction, we were applying three different machine
+          learning models including support vector machines (SVMs), logistical regression and random forest and choosing
+          one with the best performance for our model.</p>
+
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+
+  <a name="viz"></a>
+  <div class="container" id="viz">
+    <div class="row">
+      <div class="col-md-8 offset-md-2 text-center">
+        <h1>Data Visualizations</h1>
+        <p>Results available on <a
+            href="https://public.tableau.com/views/IncomeDriverAnalysis/HigherIncomeDrivers?:language=en-US&:display_count=n&:origin=viz_share_link">Tableau
+            Public</a> and can be found below.</p>
+      </div>
+
+      <div class='col-md-8 offset-md-1 text-center' id='viz1638638364906'>
+        <noscript>
+          <a href='#'>
+            <img alt='Higher Income Drivers '
+              src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;In&#47;IncomeDriverAnalysis&#47;HigherIncomeDrivers&#47;1_rss.png'
+              class='col-md-8 offset-md-1 text-center' />
+          </a>
+        </noscript>
+        <object class='tableauViz' style='display:none' class='center'>
+          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+          <param name='embed_code_version' value='3' />
+          <param name='site_root' value='' />
+          <param name='name' value='IncomeDriverAnalysis&#47;HigherIncomeDrivers' />
+          <param name='tabs' value='no' />
+          <param name='toolbar' value='yes' />
+          <param name='static_image'
+            value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;In&#47;IncomeDriverAnalysis&#47;HigherIncomeDrivers&#47;1.png' />
+          <param name='animate_transition' value='yes' />
+          <param name='display_static_image' value='yes' />
+          <param name='display_spinner' value='yes' />
+          <param name='display_overlay' value='yes' />
+          <param name='display_count' value='yes' />
+          <param name='language' value='en-US' />
+        </object>
+      </div>
+      <script type='text/javascript'>                    var divElement = document.getElementById('viz1638638364906'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '1016px'; vizElement.style.height = '991px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                
+      </script>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <br>
+
+  <a name="mlmodel"></a>
+  <div class="container" id="mlmodel">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <h1 class="mlheader text-center">Machine Learning</h1>
+        <br>
+        <p class="mltext text-center">
+          Our goal is to accurately predict one’s income value is more or less than 50,000 USD. The result is
+          demonstrated by the following major steps of machine learning.<br>
+        </p>
+
+        <h5>1. Data Processing<br></h5>
+
+        <ul class="datapre">
+          <li>Data source: Income Classification dataset from <a
+              href="https://www.kaggle.com/lodetomasi1995/income-classification)">Kaggle</a>.</li>
+          <li>Find and drop total of 2399 missing data and unnecessary columns. Remaining 30162 rows of data with 10
+            features and 1 target column (income).</li>
+          <li>Using Scikit-learn's <mark>One-Hot Encoding</mark> to fit and transform categorical variables.</li>
+          <li>Using Scikit-learn's <mark>StandardScaler</mark> module standardizes the data so that the mean of each
+            feature is 0 and standard deviation is 1.</li>
+        </ul>
+
+        <h5>2. Selecting three different Machine Learning Models<br></h5>
+        <p>
+          In our analysis, the outcome of income prediction is a binary classification (>50K or <=50K). Here are the
+            results of three different machine learning models which are commonly used in categorizing sample into
+            groups. </p>
+            <ul class="models">
+              <h6>
+                <li>Logistical Regression</li>
+              </h6>
+
+              <p>
+                Confusion matrix:
+              <table>
+                <tr>
+                  <th></th>
+                  <td>Predicted Income <=50K< /td>
+                  <td>Predicted Income >50K</td>
+                </tr>
+                <tr>
+                  <td>Actual Income <=50K< /td>
+                  <td>5231</td>
+                  <td>411</td>
+                </tr>
+                <tr>
+                  <td>Actual Income >50K</td>
+                  <td>798</td>
+                  <td>1101</td>
+                </tr>
+              </table>
+
+              Accuracy Score: 83.97%<br>
+              Precision Score: 83%<br>
+              Recall Score: 84%
+        </p>
+
+        <h6>
+          <li>Support Vector Machines (SVMs)</li>
+        </h6>
+        <p>
+          Confusion matrix:
+        <table>
+          <tr>
+            <th></th>
+            <td>Predicted Income <=50K< /td>
+            <td>Predicted Income >50K</td>
+          </tr>
+          <tr>
+            <td>Actual Income <=50K< /td>
+            <td>5236</td>
+            <td>406</td>
+          </tr>
+          <tr>
+            <td> Actual Income >50K </td>
+            <td>821</td>
+            <td>1078</td>
+          </tr>
+        </table>
+
+        Accuracy Score: 83.72%<br>
+        Precision Score: 83%<br>
+        Recall Score: 84%
+        </p>
+        <h6>
+          <li>Random Forest</li>
+        </h6>
+        <p>
+          Confusion matrix:
+        <table>
+          <tr>
+            <th></th>
+            <td>Predicted Income <=50K< /td>
+            <td>Predicted Income >50K</td>
+          </tr>
+          <tr>
+            <td>Actual Income <=50K< /td>
+            <td>5089</td>
+            <td>553</td>
+          </tr>
+          <tr>
+            <td>Actual Income >50K</td>
+            <td>801</td>
+            <td>1098</td>
+          </tr>
+        </table>
+
+        Accuracy Score: 82.04%<br>
+        Precision Score: 81%<br>
+        Recall Score: 82%
+        </p>
+        </ul>
+
+        <h5>3. Training the Models<br></h5>
+        <p>
+          Using Scikit-learn's <mark>train_test_split</mark> module to split 75% of features (X) and target (y) data
+          into training data and 25% for testing data.
+        </p>
+        <h5>4. Evaluating the Models<br></h5>
+        <p>
+          Using 25% testing data to evaluate the models. Comparing the actual result and the predicting result and
+          calculating the confusion matrix and accuracy score for each model.
+        </p>
+        <h5>5. Determining the Model for predicting income value<br></h5>
+        <p>
+          To campare, the <strong>logistic regression model</strong> scored the highest in terms of accuracy score
+          (83.97%), which was slightly better than the Support Vector Machine (83.72%) or Random Forest model (82.04%).
+          Given this provided the highest level of accuracy, this model was used to develop our interactive income
+          predictor built into our web page.
+        </p>
+        <br>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+
+
+
+  <footer>
+    <p>
+      <storng>University of Minnesota Data Analytics Boot Camp | Group 2 Final Project
+        <br> Team Members: Zack Scott, Bess Hung, Lin Xie, Mike Manthey
+        <br> Github Project Page: <a id="foot" style="color:cornsilk; "
+          href="https://github.com/BessHung/Income_Classification">Income Classifiaction</a>
+      </storng>
+    </p>
+
+  </footer>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

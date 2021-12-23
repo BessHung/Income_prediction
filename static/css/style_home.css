@@ -1,0 +1,49 @@
+
+nav {
+  text-indent: 8px;
+  text-align: center;
+  font-size: 15px;
+  opacity: 0.9;
+  position: fixed;
+}
+.dropdown-item {
+  color:silver
+}
+
+.jumbotron {
+  background-image: url(../img/pic1.jpg);
+  background-size: cover;
+  background-position: bottom;
+  text-align: center;
+  height: 20vh;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  justify-content:center;
+}
+
+footer{
+  background-image: url(../img/pic1.jpg);
+  background-size: cover;
+  background-position: bottom;
+  text-align: center;
+  height: 15vh;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  justify-content:center;
+  padding: 1%;
+  color:cornsilk;
+  letter-spacing: 1px;
+}
+
+.models {
+  margin-left: 15px;
+}
+.datapre {
+  margin-left: 15px;
+}
+table, th, td {
+  border: 1px solid rgb(194, 188, 180);
+  border-collapse: collapse;
+  width: auto;
+  height: 35px;
+}
