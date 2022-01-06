@@ -1,4 +1,5 @@
 # Income classification
+Link to Heroku Server: https://income-prediction-1.herokuapp.com/
 
 ## Running the Application
 1. Clone repository to your local machine.
@@ -8,24 +9,20 @@
 5. Run the application from your command line (python app.py)
 6. Terminal/Git Bash will show * Running on http://127.0.0.1:5000/. Copy the url end point and paste into your browser window.
 
-## Project Overview:
-The purpose of this project is to demonstrate the various coding languages we have learned over the course of the Bootcamp by using a dataset, building a machine learning model to provide a prediction, and visualizing the results for users.
+## Project Overview
+The purpose of this project is to predict if one’s income is more or less than 50K based on 10 given features. We used income classification dataset found on Kaggle.com. The dataset has 14 attributes and 1 target, we dropped and cleaned the data and remained 30162 rows of data and 10 features for our machine learning model.
 
-### Selected Topic:
-Predicting user income level based on the following features:
+To determine which machine learning model to use in prediction, we were applying three different machine learning models including support vector machines (SVMs), logistical regression and random forest and choosing one with the best performance for our model.
 
-### Description of Data Source:
-Our datasource comes from kaggle: https://www.kaggle.com/lodetomasi1995/income-classification
+## Data
+- Data source: https://www.kaggle.com/lodetomasi1995/income-classification
 
-The Data Source contains information on age, workclass, final weight (total number of people represented in row), education level, marital status, occupation, familial relationship, race, gender, capital gain, capital loss, hours worked per week, and native country.
+  The Data Source contains information on age, workclass, final weight (total number of people represented in row), education level, marital status, occupation, familial relationship, race, gender, capital gain, capital loss, hours worked per week, and native country.
+- Database Engine: PostgresSQL
+- Tables: Income_Table
 
-### Database Engine
-Postgres - to be used for data cleaning
 
-### List of tables
-Income_Table - contains the columns listed in the description of data source.
-
-## Machine Learning Model
+## Machine Learning
 
 ### Data-processing
 1.	Find and drop total of 2399 missing data. Remaining 30162 rows of data for our machine learning model.
@@ -48,30 +45,9 @@ Income_Table - contains the columns listed in the description of data source.
 ### Training and testing dataset
 Using Scikit-learn's `train_test_split` module to split 75% of features (X) and target (y) data into training data and 25% for testing data.
 
-### Explanation of model choice, including benefits and limitations
+### Machine Learning Models
+In our analysis, the outcome of income prediction is a binary classification (>50K or <=50K). Here are the results of three different machine learning models which are commonly used in categorizing sample into groups.
 
-- Random Forest vs. Logistic regression:
-
-In the context of low-dimensional data (i.e., when the number of covariates is small compared to the sample size), logistic regression is considered a standard approach for binary classification. 
-
-In this project, we focus on prediction rather than explanation, giving the dataset we have, Logistic regression is preferred.
-
-
-- SVM vs. Logistic regression:
-
-Logistic regression works with the identified independent variable, while SVM works well with unstructured and semi-structured data like text and images. 
-
-Logistic regression is used to solve classification problems based on a statistical approach, while SVM is used for both classification and regression based on geometrical properties of the data. 
-
-In this project, we identified “income” as the independent variable. Predicting one’s income is greater than 50K or less than 50K based on these features: age, hours-per-week,  education, marital-status, work-class,  occupation, sex, relationship, race.  
-It is a two-class classification problem. As such, Logistic regression is preferred.
-
-
-- The benefits of using logistic regression are that it has good accuracy for simple datasets. It performs well when the dataset is linearly separable(in our case, greater than 50K or less than 50K).
- However, logistic regression is vulnerable to overfitting and outliers. 
-
-
-### Preliminary model evaluation
 Run our models with the same train test split, comparison the balanced accuracy score and precision, result as below:
 
  Models               |Balanced accuracy score   |Precision      |
@@ -84,20 +60,19 @@ Our best scores are with Logistic Regression with a balanced accuracy score of 0
 
 ## Dashboard
 
-### Interactive elements
+#### Interactive elements
 
-Our webpage will include input boxes for users to provide the necessary information for our model to run a prediction. The inputs are the features listed above.
+The webpage includes input boxes for users to provide the necessary information for our model to run a prediction as well as additional tabs which provides the user insight into:
+- The methodology into which machine learning models were tested, which model was selected to make predictions, and the rationale behind our selection.
+- Additional data insights into the relationship between the features and model predictions.
 
-Our webpage will also contain additional tabs which will provide the user insight into:
+#### Tools/technologies for the creating the dashboard
 
-1. Our methodology into which machine learning models were tested, which model was selected to make predictions, and the rationale behind our selection.
-2. Additional data insights into the relationship between the features and model predictions.
+Programming Languages: Javascript, Python, HTML
 
-### Tools/technologies for the creating the dashboard
+Tools: Flask, Tableau
 
-Programming: (Javascript, Python, HTML):
+- Running python script to grab inputs from web entry running ML model (logistic regression) to predict income level based on input, with output showing whether user is likely to have income above or below $50K per year. Additional pages with deeper analysis and background, as described in interactive elements.
 
-* Running python script to grab inputs from web entry running ML model (logistic regression) to predict income level based on input, with output showing whether user is likely to have income above or below $50K per year. Additional pages with deeper analysis and background, as described in interactive elements.
-
-* Tableau public: Summarizing trends in data set among features used
+- Tableau public: Summarizing trends in dataset among features used.
 
